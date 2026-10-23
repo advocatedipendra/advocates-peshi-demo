@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ne">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101b34">
+  <meta name="description" content="Advocates & Jurists: पेशी, मुद्दा र कार्य व्यवस्थापन प्रणाली">
+  <title>Advocates & Jurists — Peshi Management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="toast" class="toast" role="status"></div>
+  <section id="auth-screen" class="auth-screen">
+    <div class="auth-aside">
+      <div class="brand"><span class="brand-mark">A<span>J</span></span><span>ADVOCATES <i>&</i> JURISTS<small>PESHI MANAGEMENT</small></span></div>
+      <div class="auth-pitch"><div class="eyebrow">LEGAL PRACTICE · MADE CLEAR</div><h1>तपाईंको अभ्यास,<br><em>एकै ठाउँमा।</em></h1><p>मुद्दा, पेशी र कामको व्यवस्थापन—व्यवस्थित, सुरक्षित र सधैं अद्यावधिक।</p><div class="auth-stat"><b>०१</b><span>आजको पेशीबाट<br>आगामी समयसीमासम्म</span><b>•</b><span>तपाईंको टोलीका लागि<br>बनाइएको सुरक्षित स्थान</span></div></div>
+      <div class="auth-foot">नेपालका कानूनी व्यवसायीहरूका लागि · सुरक्षित कार्यक्षेत्र</div>
+    </div>
+    <main class="auth-main">
+      <form id="login-form" class="auth-card">
+        <div class="eyebrow">स्वागत छ</div><h2>आफ्नो खातामा लगइन गर्नुहोस्</h2><p class="muted">आफ्नो कार्यक्षेत्रमा प्रवेश गर्न विवरण राख्नुहोस्।</p>
+        <label>इमेल ठेगाना<input name="email" type="email" placeholder="name@lawfirm.com" autocomplete="username" required></label>
+        <label>पासवर्ड<input name="password" type="password" placeholder="आफ्नो पासवर्ड" autocomplete="current-password" required></label>
+        <button class="button primary full" type="submit">लगइन गर्नुहोस् <span>→</span></button>
+        <button id="forgot-open" class="text-button" type="button">पासवर्ड बिर्सनुभयो?</button>
+        <button id="demo-open" class="demo-link" type="button">प्रणालीको प्रत्यक्ष पूर्वावलोकन हेर्नुहोस् <span>↗</span></button>
+        <p class="auth-note">खाता छैन? आफ्नो संस्थाको एडमिनसँग सम्पर्क गर्नुहोस्।</p>
+      </form>
+    </main>
+  </section>
+
+  <div id="app-shell" class="app-shell hidden">
+    <aside class="sidebar">
+      <a class="brand side-brand" href="#"><span class="brand-mark">A<span>J</span></span><span>ADVOCATES <i>&</i> JURISTS<small>PESHI MANAGEMENT</small></span></a>
+      <div class="workspace-label">कार्यक्षेत्र</div>
+      <div class="workspace"><span class="workspace-avatar">A</span><span><b id="workspace-name">कानूनी कार्यक्षेत्र</b><small id="role-name">सदस्य</small></span><span class="chevron">⌄</span></div>
+      <nav class="nav">
+        <div class="nav-label">कार्यक्षेत्र</div>
+        <button class="nav-item active" data-page="overview"><span class="nav-icon">◫</span>अवलोकन</button>
+        <button class="nav-item" data-page="hearings"><span class="nav-icon">▦</span>आज तथा आगामी पेशी<span id="nav-hearing-count" class="nav-count"></span></button>
+        <div class="nav-label nav-gap">अभिलेख</div>
+        <button class="nav-item" data-page="cases"><span class="nav-icon">▤</span>मुद्दा व्यवस्थापन</button>
+        <button class="nav-item" data-page="hearings"><span class="nav-icon">◷</span>पेशी तालिका</button>
+        <button class="nav-item" data-page="tasks"><span class="nav-icon">☷</span>कार्य तथा समयसीमा</button>
+        <div id="admin-nav" class="hidden">
+          <div class="nav-label nav-gap">व्यवस्थापन</div>
+          <button class="nav-item" data-page="users"><span class="nav-icon">♙</span>टोली सदस्य</button>
+          <button class="nav-item" data-page="courts"><span class="nav-icon">⌂</span>अदालत तथा निकाय</button>
+          <button class="nav-item" data-page="requests"><span class="nav-icon">◉</span>मेटाउने अनुरोध<span id="nav-request-count" class="nav-count"></span></button>
+        </div>
+      </nav>
+      <div class="sidebar-bottom"><div class="secure-note"><span>◈</span><div><b>निजी कार्यक्षेत्र</b><small>तपाईंको टोलीका लागि सुरक्षित</small></div></div><button id="logout" class="nav-item logout"><span class="nav-icon">↗</span>लगआउट</button></div>
+    </aside>
+    <main class="main-area">
+      <header class="topbar"><div class="breadcrumb">Advocates & Jurists <span>/</span> <b id="crumb-title">अवलोकन</b></div><div class="top-actions"><span class="today"><i></i><span id="today-date">आज · नेपाल समय</span></span><button id="quick-add" class="button primary small">＋ नयाँ प्रविष्टि</button><button class="avatar" id="user-avatar" title="पासवर्ड परिवर्तन गर्नुहोस्" aria-label="पासवर्ड परिवर्तन गर्नुहोस्">अ</button></div></header>
+      <div class="content">
+        <div id="demo-banner" class="demo-banner hidden"><span>पूर्वावलोकन मोड</span> यो नमूना डाटा हो; परिवर्तनहरू सुरक्षित हुँदैनन्।<button id="demo-exit">लगइनमा फर्कनुहोस्</button></div>
+        <section id="page-overview" class="page">
+          <div class="page-heading"><div><div class="eyebrow" id="welcome-line">कार्यक्षेत्र</div><h1>नमस्कार, <span id="user-first-name">साथी</span> <span class="wave">✳</span></h1><p>तपाईंको कानूनी कार्यको आजको संक्षिप्त झलक।</p></div><button class="button outline" id="share-overview">↗ <span>आजको सूची सेयर</span></button></div>
+          <div class="stat-grid">
+            <article class="stat-card"><div class="stat-top"><span>दर्ता मुद्दा</span><span class="stat-icon blue">▤</span></div><div class="stat-value" id="stat-cases">०</div><div class="stat-caption">कार्यक्षेत्रका मुद्दा</div></article>
+            <article class="stat-card"><div class="stat-top"><span>आगामी पेशी</span><span class="stat-icon gold">◷</span></div><div class="stat-value" id="stat-hearings">०</div><div class="stat-caption">तालिकामा रहेका पेशी</div></article>
+            <article class="stat-card"><div class="stat-top"><span>खुला कार्य</span><span class="stat-icon purple">☷</span></div><div class="stat-value" id="stat-tasks">०</div><div class="stat-caption">अझै सम्पन्न गर्न बाँकी</div></article>
+            <article class="stat-card" id="stat-request-card"><div class="stat-top"><span>स्वीकृति अनुरोध</span><span class="stat-icon orange">◉</span></div><div class="stat-value" id="stat-requests">०</div><div class="stat-caption">एडमिनको समीक्षाका लागि</div></article>
+          </div>
+          <div class="section-heading"><div><div class="eyebrow">तपाईंको तालिका</div><h2>आगामी पेशी</h2></div><button class="text-button" data-goto="hearings">सबै हेर्नुहोस् →</button></div>
+          <div class="panel"><div id="overview-hearings" class="record-list"></div></div>
+          <div class="section-heading task-section"><div><div class="eyebrow">प्राथमिकता</div><h2>नजिकिँदै गरेका समयसीमा</h2></div><button class="text-button" data-goto="tasks">सबै कार्य →</button></div>
+          <div class="panel"><div id="overview-tasks" class="task-list"></div></div>
+        </section>
+        <section id="page-cases" class="page hidden"></section>
+        <section id="page-hearings" class="page hidden"></section>
+        <section id="page-tasks" class="page hidden"></section>
+        <section id="page-users" class="page hidden"></section>
+        <section id="page-courts" class="page hidden"></section>
+        <section id="page-requests" class="page hidden"></section>
+        <footer>Advocates & Jurists <span>·</span> गोपनीयता र पेशागत जिम्मेवारीका लागि बनाइएको</footer>
+      </div>
+    </main>
+  </div>
+  <dialog id="record-dialog" class="dialog"><form id="record-form" method="dialog"><div class="dialog-head"><div><div class="eyebrow">विवरण</div><h2 id="dialog-title">नयाँ प्रविष्टि</h2></div><button class="icon-button" value="cancel" aria-label="बन्द गर्नुहोस्">×</button></div><div id="dialog-fields" class="dialog-fields"></div><div class="dialog-actions"><button class="button outline" value="cancel">रद्द गर्नुहोस्</button><button id="dialog-save" class="button primary" value="save">सेभ गर्नुहोस्</button></div></form></dialog>
+  <script src="app.js" defer></script>
+</body>
+</html>
